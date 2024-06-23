@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import CyberCards from '../components/CyberCards'
 import Pagination from '../components/Pagination'
+import CategorySelection from '../components/CategorySelection'
+import SideBar from '../components/SideBar'
 
 const CyberNewsPage = () => {
     const [cyberNews, setCyberNews] = useState([])
@@ -36,9 +38,16 @@ const CyberNewsPage = () => {
 
   return (
     <div>
-      <div>CyberNews Categories</div>
       <div>
+        <CategorySelection onSelectCategory={handleCategoryChange} selectedCategory={selectedCategory} activeCategory={activeCategory}/>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-12">
         <CyberCards cyberNews={cyberNews} firstPage={firstPage} selectedCategory={selectedCategory} pageSize={pageSize} />
+
+        <div>
+          <SideBar />
+        </div>
+
       </div>
       <div>
         <Pagination onPageChange={handlePageChange} firstPage={firstPage} cyberNews={cyberNews} pageSize={pageSize} />

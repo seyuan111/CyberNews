@@ -46,7 +46,7 @@ const NavBar = () => {
         </nav>
 
         <div>
-          <ul className={`first:md:hidden gap-10 text-lg font-bold block space-y-4 px-4 py-6 mt-14 bg-white ${openMenu ? "fixed top-0 left-0 w-full transition-all ease-out duration-300" : "hidden"}`}>
+          <ul className={`first:md:hidden gap-10 text-lg font-bold block space-y-4 px-4 py-8 mt-14 bg-white ${openMenu ? "fixed top-0 left-0 w-full transition-all ease-out duration-300" : "hidden"}`}>
             {
               navItems.map(({path, link}) => <li className="text-black hover:text-orange-700 duration-300" key={path}>
                 <NavLink onClick={toggleMenu} to={path}>{link}</NavLink>

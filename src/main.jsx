@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Login from './pages/Login'
 import SignUp from './pages/Signup'
+import SingleNews from './pages/SingleNews'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <SignUp />
       },
+      {
+        path: '/cybernews/:id',
+        element: <SingleNews />,
+        loader: ({params}) => fetch(`http://localhost:4000/cybernews/${params.id}`)
+      }
     ]
   }
 ])
